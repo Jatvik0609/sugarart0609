@@ -56,7 +56,7 @@ export const Shop = () => {
                             </Link>
                         </div>
                         <div>
-                            <Link to="chocolateshells">
+                            <Link to="/chocolateshells">
                                 <img src={Chocolateshells}></img>
                                 <h4>CHOCOLATE SHELLS</h4>
                             </Link>

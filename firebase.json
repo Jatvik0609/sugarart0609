@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "sugarart0609",
+    "site": "sugarart-bc9e9",
     "public": "build",
     "ignore": [
       "firebase.json",
