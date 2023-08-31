@@ -20,33 +20,33 @@ function App() {
   return (
     <div className="App">
       <ShopContextProvider>
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/createid" element={<Createid />} />
-          <Route
-            path="/*"
-            element={
-              <div>
-                <Navbar />
-                <Routes>
-                <Route path="cart" element={<Cart />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/cocoa" element={<Cocoa />} />
-                <Route path="/filling" element={<Filling />} />
-                <Route path="/chocolateshells" element={<Chocolateshells />} />
-                <Route path="/chocolateingredients" element={<Chocolateingredients />} />
-                <Route path="/foodcoloring" element={<Foodcoloring />} />
-                <Route path="/dryfruitsandnuts" element={<Dryfruitsandnuts />} />
-                <Route path="/frozenfruitandpuree" element={<Frozenfruitandpuree />} />
-                <Route path="/honey" element={<Honey />} />
-                <Route index element={<Shop />} />
-                </Routes>
-              </div>
-            }
-          />
-        </Routes>
-      </Router>
+        <Router>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/createid" element={<Createid />} />
+            <Route
+              path="/*"
+              element={
+                <div>
+                  <Navbar />
+                  <Routes>
+                    <Route path="cart" element={<Cart />} />
+                    <Route path="/products" element={<Products />} />
+                    <Route path="/cocoa" element={<Cocoa />} />
+                    <Route path="/filling" element={<Filling />} />
+                    <Route path="/chocolateshells" element={<Chocolateshells />} />
+                    <Route path="/chocolateingredients" element={<Chocolateingredients />} />
+                    <Route path="/foodcoloring" element={<Foodcoloring />} />
+                    <Route path="/dryfruitsandnuts" element={<Dryfruitsandnuts />} />
+                    <Route path="/frozenfruitandpuree" element={<Frozenfruitandpuree />} />
+                    <Route path="/honey" element={<Honey />} />
+                    <Route index element={<Shop />} />
+                  </Routes>
+                </div>
+              }
+            />
+          </Routes>
+        </Router>
       </ShopContextProvider>
     </div>
   );
