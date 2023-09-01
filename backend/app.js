@@ -37,43 +37,55 @@ app.get("/", (request, response, next) => {
 
 // register endpoint
 app.post("/register", (request, response) => {
-  // hash the password
-  bcrypt
-    .hash(request.body.password, 10)
-    .then((hashedPassword) => {
-      // create a new user instance and collect the data
-      const user = new User({
-        email: request.body.email,
-        password: hashedPassword,
-      });
+  // Check if the email already exists in the database
+  User.findOne({ email: request.body.email })
+    .then((existingUser) => {
+      if (existingUser) {
+        // Email already exists
+        return response.status(409).send({
+          message: "Email already exists",
+        });
+      }
 
-      // save the new user
-      user
-        .save()
-        // return success if the new user is added to the database successfully
-        .then((result) => {
-          response.status(201).send({
-            message: "User Created Successfully",
-            result,
+      // If email doesn't exist, hash the password and create a new user
+      bcrypt
+        .hash(request.body.password, 10)
+        .then((hashedPassword) => {
+          const user = new User({
+            name: request.body.name,
+            email: request.body.email,
+            password: hashedPassword,
           });
+
+          user
+            .save()
+            .then((result) => {
+              response.status(201).send({
+                message: "User Created Successfully",
+                result,
+              });
+            })
+            .catch((error) => {
+              response.status(500).send({
+                message: "Error creating user",
+                error,
+              });
+            });
         })
-        // catch erroe if the new user wasn't added successfully to the database
-        .catch((error) => {
+        .catch((e) => {
           response.status(500).send({
-            message: "Error creating user",
-            error,
+            message: "Password was not hashed successfully",
+            e,
           });
         });
     })
-    // catch error if the password hash isn't successful
-    .catch((e) => {
+    .catch((error) => {
       response.status(500).send({
-        message: "Password was not hashed successfully",
-        e,
+        message: "Error checking email existence",
+        error,
       });
     });
 });
-
 // login endpoint
 app.post("/login", (request, response) => {
   // check if email exists

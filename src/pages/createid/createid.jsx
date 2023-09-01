@@ -24,12 +24,19 @@ import { Link } from 'react-router-dom';
 import './createid.css';
 
 export default function Createid() {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [register, setRegister] = useState(false);
+    const [emailExists, setEmailExists] = useState(false);
+
+    const handleNameChange = (event) => {
+        setName(event.target.value);
+    };
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
+        setEmailExists(false); // Reset emailExists state when email changes
     };
 
     const handlePasswordChange = (event) => {
@@ -43,6 +50,7 @@ export default function Createid() {
             method: 'post',
             url: 'http://localhost:3000/register',
             data: {
+                name,
                 email,
                 password,
             },
@@ -55,6 +63,10 @@ export default function Createid() {
             })
             .catch((error) => {
                 console.log(error);
+
+                if (error.response && error.response.status === 409) {
+                    setEmailExists(true);
+                }
             });
     };
 
@@ -63,45 +75,55 @@ export default function Createid() {
             <div className="main">
                 <h2>Register</h2>
                 <form onSubmit={handleSubmit}>
-                    {/* email */}
-                    <div>
-                        <label>Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={email}
-                            placeholder="Enter email"
-                            onChange={handleEmailChange}
-                        />
-                    </div>
-
-                    {/* password */}
-                    <div>
-                        <label>Password</label>
-                        <input
-                            type="password"
-                            name="password"
-                            value={password}
-                            placeholder="Password"
-                            onChange={handlePasswordChange}
-                        />
-                    </div>
-
-                    {/* submit button */}
-                    <button type="submit">
-                        Register
-                    </button>
+                    <label htmlFor="name">Name</label>
+                    <input
+                        className="name"
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={name}
+                        placeholder="Enter name"
+                        onChange={handleNameChange}
+                        required
+                    />
+                    <br></br>
+                    <label htmlFor="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={email}
+                        placeholder="Enter email"
+                        onChange={handleEmailChange}
+                        required
+                    />
+                    <br></br>
+                    <label htmlFor="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        value={password}
+                        placeholder="Password"
+                        onChange={handlePasswordChange}
+                        required
+                    />
+                    <br></br>
+                    <button type="submit">Register</button>
                 </form>
 
                 <Link to="/login">
                     <h1 className="createidtxt1">Log in</h1>
                 </Link>
 
-                {register ? (
-                    <p style={{ color: 'green' }}>You Are Registered Successfully</p>
-                ) : (
-                    <p style={{ color: 'red' }}>You Are Not Registered</p>
+                {emailExists && (
+                    <p className="text-danger">Email already exists. Please use a different email.</p>
                 )}
+                {/* {register ? (
+                    <p className="text-success">You Are Registered Successfully</p>
+                ) : (
+                    <p className="text-danger">You Are Not Registered</p>
+                )} */}
             </div>
         </div>
     );

@@ -64,7 +64,7 @@ export default function Login() {
 
   return (
     <div className='login'>
-      <div className='main'>
+      <div className='loginmain'>
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
           {/* email */}
