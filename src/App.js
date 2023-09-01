@@ -1,10 +1,10 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/navbar";
-import { Login } from "./pages/login/login";
+import Login from './pages/login/login'; // Use lowercase 'login'
+import Createid from "./pages/createid/createid";
 import { Cart } from "./pages/cart/cart";
 import { Shop } from "./pages/shop/shop";
-import { Createid } from "./pages/createid/createid";
 import { Products } from "./pages/shop/products.jsx";
 import { Cocoa } from "./pages/shop/products/cocoa";
 import { Filling } from "./pages/shop/products/filling";
@@ -23,7 +23,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/createid" element={<Createid />} />
+            <Route path="/register" element={<Createid />} />
             <Route
               path="/*"
               element={
