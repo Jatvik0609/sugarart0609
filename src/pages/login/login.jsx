@@ -68,21 +68,23 @@ export default function Login() {
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
           {/* email */}
-          <div>
+          <div className='emailll'>
             <label>Email</label>
             <input
+              className='aaa'
               type="email"
               name="email"
               value={email}
-              placeholder="Enter email"
+              placeholder="Email"
               onChange={handleEmailChange}
             />
           </div>
 
           {/* password */}
-          <div>
+          <div className='passss'>
             <label>Password</label>
             <input
+              className='bbb'
               type="password"
               name="password"
               value={password}

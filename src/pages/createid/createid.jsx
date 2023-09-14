@@ -77,7 +77,7 @@ export default function Createid() {
             <div className="main">
                 <h2>Register</h2>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name" className='snameee'>Name</label>
                     <input
                         className="name"
                         type="text"
@@ -89,7 +89,7 @@ export default function Createid() {
                         required
                     />
                     <br></br>
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email" className='semailll'>Email</label>
                     <input
                         type="email"
                         id="email"
@@ -100,7 +100,7 @@ export default function Createid() {
                         required
                     />
                     <br></br>
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password" className='spassssword'>Password</label>
                     <input
                         type="password"
                         id="password"

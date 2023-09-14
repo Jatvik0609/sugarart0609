@@ -36,3 +36,24 @@ button{
 .logintxt1{
     font-size: 10px;
 }
+
+
+.emailll{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.passss{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aaa{
+    margin-left: 28px;
+}
+
+.bbb{
+    margin-left: 4px;
+}
