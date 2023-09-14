@@ -15,6 +15,7 @@ import { Foodcoloring } from "./pages/shop/products/foodcoloring";
 import { Dryfruitsandnuts } from "./pages/shop/products/dryfruitsandnuts";
 import { Frozenfruitandpuree } from "./pages/shop/products/frozenfruitandpuree";
 import { Honey } from "./pages/shop/products/honey";
+import CheckoutPage from "./pages/cart/CheckoutPage";
 
 function App() {
   return (
@@ -24,13 +25,14 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Createid />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
             <Route
               path="/*"
               element={
                 <div>
                   <Navbar />
                   <Routes>
-                    <Route path="cart" element={<Cart />} />
+                    <Route path="/cart" element={<Cart />} />
                     <Route path="/products" element={<Products />} />
                     <Route path="/cocoa" element={<Cocoa />} />
                     <Route path="/filling" element={<Filling />} />

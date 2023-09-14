@@ -20,7 +20,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './createid.css';
 
 export default function Createid() {
@@ -29,6 +29,7 @@ export default function Createid() {
     const [password, setPassword] = useState('');
     const [register, setRegister] = useState(false);
     const [emailExists, setEmailExists] = useState(false);
+    const navigate = useNavigate();
 
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -60,6 +61,7 @@ export default function Createid() {
             .then((result) => {
                 console.log(result);
                 setRegister(true);
+                navigate('/login');
             })
             .catch((error) => {
                 console.log(error);
@@ -119,11 +121,11 @@ export default function Createid() {
                 {emailExists && (
                     <p className="text-danger">Email already exists. Please use a different email.</p>
                 )}
-                {/* {register ? (
+                {register ? (
                     <p className="text-success">You Are Registered Successfully</p>
                 ) : (
                     <p className="text-danger">You Are Not Registered</p>
-                )} */}
+                )}
             </div>
         </div>
     );

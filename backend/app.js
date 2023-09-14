@@ -86,6 +86,7 @@ app.post("/register", (request, response) => {
       });
     });
 });
+
 // login endpoint
 app.post("/login", (request, response) => {
   // check if email exists
