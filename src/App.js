@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/navbar";
-import Login from './pages/login/login'; // Use lowercase 'login'
+import Login from './pages/login/login';
 import Createid from "./pages/createid/createid";
 import { Cart } from "./pages/cart/cart";
 import { Shop } from "./pages/shop/shop";
@@ -15,7 +15,9 @@ import { Foodcoloring } from "./pages/shop/products/foodcoloring";
 import { Dryfruitsandnuts } from "./pages/shop/products/dryfruitsandnuts";
 import { Frozenfruitandpuree } from "./pages/shop/products/frozenfruitandpuree";
 import { Honey } from "./pages/shop/products/honey";
-import CheckoutPage from "./pages/cart/CheckoutPage";
+import Orderconfimation from "./pages/cart/orderconfirmation";
+import Adminhome from "./admin/pages/adminhome";
+import Checkout from "./pages/cart/checkout";
 
 function App() {
   return (
@@ -25,13 +27,14 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Createid />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/orderconfirmation" element={<Orderconfimation />} />
             <Route
               path="/*"
               element={
                 <div>
                   <Navbar />
                   <Routes>
+                    <Route path="/checkout" element={<Checkout />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/products" element={<Products />} />
                     <Route path="/cocoa" element={<Cocoa />} />
@@ -47,6 +50,16 @@ function App() {
                 </div>
               }
             />
+            <Route
+              path="/admin"
+              element={
+                <div>
+                  <Routes>
+                    <Route index element={<Adminhome />} />
+                  </Routes>
+                </div>
+              }
+            ></Route>
           </Routes>
         </Router>
       </ShopContextProvider>

@@ -6,9 +6,10 @@
 }
 
 .links {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .sugarartlogo {
@@ -42,6 +43,11 @@ a:hover {
   color: #322b5c;
 }
 
+.middddle{
+  display: flex;
+  justify-content: center;
+}
+
 svg {
   margin-left: 10px;
   cursor: pointer;
@@ -49,4 +55,18 @@ svg {
 
 .carticon {
   margin-right: 10px;
+}
+
+.cart-num{
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.cart-num p {
+  margin-top: 10px;
+}
+
+.user-icon{
+  margin-left: 40px;
 }

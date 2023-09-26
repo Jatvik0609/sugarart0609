@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Coverimg from "../../pics/171EF3FBE3FA5F740ED580FE80_1623332858998.webp";
 import "../shop/shop.css";
@@ -17,6 +20,39 @@ import Call from "../../pics/F7EDECDB2D3EF3738CF7B9DCA7_1623407296291.webp"
 import Time from "../../pics/EBAB0B51E54EA557D8F06D348C_1623407303659.webp"
 
 export const Shop = () => {
+
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const sliderNav = (manual) => {
+        setActiveIndex(manual);
+    }
+
+    const [userData, setUserData] = useState();
+
+    const navigate = useNavigate();
+    const callHomePage = async () => {
+        try {
+            const res = await axios.post('/', {
+                token: localStorage.getItem('token')
+            });
+
+            setUserData(res.data);
+            if (!res.status === 200) {
+                const error = new Error(res.error)
+                throw error;
+            }
+
+        }
+        catch (err) {
+            console.log(err);
+            navigate("/login");
+        }
+    }
+
+    useEffect(() => {
+        callHomePage();
+    }, [])
+
     return (
         <div>
             <section className="shoppage1">
