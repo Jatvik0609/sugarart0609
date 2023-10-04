@@ -5,7 +5,6 @@ function App() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        // Make a GET request to your API endpoint
         axios.get('/api/data')
             .then((response) => {
                 setData(response.data);

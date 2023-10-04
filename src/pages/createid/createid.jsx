@@ -41,7 +41,6 @@ export default function Createid() {
             const data = await res.json();
 
             if (data.error) {
-                // window.alert("Invalid Registration!");
                 console.log("Invalid Registration!");
                 window.alert(data.error);
             }
@@ -64,10 +63,8 @@ export default function Createid() {
                         type="text"
                         id="name"
                         name="name"
-                        // value={name}
                         value={user.name} onChange={handleInputs}
                         placeholder="Enter name"
-                        // onChange={handleNameChange}
                         required
                     />
                     <br></br>
@@ -76,10 +73,8 @@ export default function Createid() {
                         type="email"
                         id="email"
                         name="email"
-                        // value={email}
                         value={user.email} onChange={handleInputs}
                         placeholder="Enter email"
-                        // onChange={handleEmailChange}
                         required
                     />
                     <br></br>
@@ -88,10 +83,8 @@ export default function Createid() {
                         type="password"
                         id="password"
                         name="password"
-                        // value={password}
                         value={user.password} onChange={handleInputs}
                         placeholder="Password"
-                        // onChange={handlePasswordChange}
                         required
                     />
                     <br></br>
@@ -100,29 +93,17 @@ export default function Createid() {
                         type="password"
                         id="cpassword"
                         name="cpassword"
-                        // value={password}
                         value={user.cpassword} onChange={handleInputs}
                         placeholder="cPassword"
-                        // onChange={handlePasswordChange}
                         required
                     />
                     <br></br>
-                    {/* <button type="submit">Register</button> */}
                     <input type='submit' name='signup' value="register" onClick={PostData}></input>
                 </form>
 
                 <Link to="/login">
                     <h1 className="createidtxt1">Log in</h1>
                 </Link>
-
-                {/* {emailExists && (
-                    <p className="text-danger">Email already exists. Please use a different email.</p>
-                )}
-                {register ? (
-                    <p className="text-success">You Are Registered Successfully</p>
-                ) : (
-                    <p className="text-danger">You Are Not Registered</p>
-                )} */}
             </div>
         </div>
     );

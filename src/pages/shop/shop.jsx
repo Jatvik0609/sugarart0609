@@ -78,7 +78,7 @@ export const Shop = () => {
             </section>
             <section className="categories" id="categories">
                 <div className="categories">
-                    <h1 className="shoptxt4">CHOCOLATES</h1>
+                    <h1 className="shoptxt4">CHOCOLATES MATERIAL</h1>
                     <div className="shopt1">
                         <div>
                             <Link to="/cocoa"><img src={Cocoa}></img>

@@ -116,8 +116,6 @@ function Admin() {
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Date</th>
-                                {/* <th>Password</th> */}
-                                {/* <th>Confirmed Password</th> */}
                             </tr>
                         </thead>
                         <tbody>
@@ -126,8 +124,6 @@ function Admin() {
                                     <td>{USER.name}</td>
                                     <td>{USER.email}</td>
                                     <td><p>{USER.date}</p></td>
-                                    {/* <td><p>{USER.password}</p></td> */}
-                                    {/* <td><p>{USER.cpassword}</p></td> */}
                                 </tr>
                             ))}
                         </tbody>

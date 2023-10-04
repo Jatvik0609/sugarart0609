@@ -8,10 +8,9 @@ const Bill = require('./model/bill')
 
 dotenv.config({ path: './config.env' });
 require('./DB/conn');
-// const User = require('./model/userSchema');
 
 app.use(express.json());
-//Linking Router file 
+
 app.use(require('./router/auth'))
 
 const PORT = process.env.PORT;

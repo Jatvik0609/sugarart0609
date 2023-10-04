@@ -88,7 +88,6 @@ export const Cart = () => {
                             </div>
                             <h6>Prices may change based on shipping address</h6>
                         </div>
-                        {/* <button onClick={() => navigate("/")}>Continue Shopping</button> */}
                         <center><button onClick={() => navigate("/checkout")}>CHECKOUT</button></center>
                     </div>
                 </div>
